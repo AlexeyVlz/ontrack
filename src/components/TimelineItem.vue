@@ -1,9 +1,12 @@
 <script setup>
 import BaseSelect from "@/components/BaseSelect.vue";
 
-const props = defineProps(
-    ['timelineItem']
-)
+const props = defineProps({
+  timelineItem: {
+    required: true,
+    type: Object
+  }
+})
 
 const options = [
   {value: 1, label: 'Coding'},
