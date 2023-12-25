@@ -1,13 +1,12 @@
-import {PAGE_ACTIVITIES,
-        PAGE_PROGRESS,
-        PAGE_TIMELINE,
+import {PAGE_TIMELINE,
         HOURS_IN_DAY}
     from "@/constants";
+import {isPageValid} from "@/validators";
 
 export function normalizePageHash() {
-    const hash = window.location.hash.slice(1)
-    if ([PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS].includes(hash)) {
-        return hash
+    const page = window.location.hash.slice(1)
+    if (isPageValid(page)) {
+        return page
     }
     window.location.hash= PAGE_TIMELINE
     return PAGE_TIMELINE;
