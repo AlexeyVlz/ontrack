@@ -5,7 +5,11 @@ export function isPageValid(page) {
 }
 
 export function isTimelineItemValid({ hour }) {
-    return isNumber(hour) && between(hour, MIDNIGHT_HOUR, HOURS_IN_DAY - 1)
+    return isHourValid(hour)
+}
+
+export function isHourValid(hour) {
+    return isNumber(hour) && isBetween(hour, MIDNIGHT_HOUR, HOURS_IN_DAY - 1)
 }
 
 export function validateSelectOptions(options) {
@@ -44,6 +48,6 @@ export function isString(value) {
     return typeof value === "string"
 }
 
-function between(value, start, end) {
+function isBetween(value, start, end) {
     return value >= start && value <= end
 }
