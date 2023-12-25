@@ -7,3 +7,15 @@ export function isPageValid(page) {
 export function isTimelineItemValid({ hour }) {
     return typeof hour === 'number' && hour >= MIDNIGHT_HOUR && hour < HOURS_IN_DAY
 }
+
+export function validateSelectOptions(options) {
+        return options.every(iSelectOptionValid)
+}
+
+function iSelectOptionValid({ value, label }) {
+    return typeof value === 'number' && typeof label === 'string'
+}
+
+export function validateTimelineItems(timelineItems) {
+        return timelineItems.every(isTimelineItemValid)
+}
