@@ -1,6 +1,6 @@
 <script setup>
 import ActivityItem from "@/components/ActivityItem.vue";
-import { validateActivities } from "@/validators";
+import {isActivityValid, validateActivities} from "@/validators";
 
 
 defineProps({
@@ -11,13 +11,22 @@ defineProps({
   }
 })
 
+const emit = defineEmits({
+  deleteActivity: isActivityValid()
+})
+
 
 </script>
 
 <template>
   <div>
     <ul class="divide-y">
-      <ActivityItem v-for="activity in activities" :key="activity" :activity="activity"/>
+      <ActivityItem
+          v-for="activity in activities"
+          :key="activity"
+          :activity="activity"
+          @delete="emit('deleteActivity', activity)"
+      />
     </ul>
   </div>
 </template>
