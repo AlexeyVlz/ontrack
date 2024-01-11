@@ -11,7 +11,7 @@ import { BUTTON_TYPE_DANGER } from "@/constants";
 defineProps({
   activity : {
     required: true,
-    type: String,
+    type: Object,
     validator: isActivityValid
   }
 })
