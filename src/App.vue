@@ -10,7 +10,7 @@ import {
   generateTimelineItems,
   normalizePageHash,
   generateActivitySelectOptions,
-  generateActivities, id
+  generateActivities
 } from './functions.js'
 
 
@@ -27,12 +27,8 @@ function goTo (page) {
   currentPage.value = page
 }
 
-function createActivity(name) {
-  activities.value.push({
-    id: id(),
-    name,
-    secondsToComplete: 0
-  })
+function createActivity(activity) {
+  activities.value.push(activity)
 }
 
 function deleteActivity(activity) {
