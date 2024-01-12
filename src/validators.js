@@ -45,6 +45,10 @@ export function isUndefinedOrNull(value) {
     return isNull(value) || isUndefined(value)
 }
 
+export function isSelectValueValid(value) {
+    return isNotEmptyString(value) || isNumberOrNull(value)
+}
+
 export function isNumberOrNull(value) {
     return isNumber(value) || isNull(value)
 }

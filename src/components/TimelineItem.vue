@@ -18,7 +18,7 @@ defineProps({
 })
 
 
-const selectActivityId = ref(0)
+const selectActivityId = ref(null)
 
 
 </script>

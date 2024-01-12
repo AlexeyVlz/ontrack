@@ -5,7 +5,7 @@ import TheTimeline from "@/pages/TheTimeline.vue";
 import TheActivities from "@/pages/TheActivities.vue";
 import TheProgress from "@/pages/TheProgress.vue";
 import {PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE} from "@/constants";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import {
   generateTimelineItems,
   normalizePageHash,
@@ -19,7 +19,7 @@ const timelineItems = generateTimelineItems()
 
 const activities = ref(generateActivities())
 
-const activitySelectOptions = generateActivitySelectOptions(activities.value);
+const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value)) ;
 
 
 

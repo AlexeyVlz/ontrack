@@ -20,7 +20,7 @@ const emit = defineEmits({
   delete: isUndefined
 })
 
-let secondsToComplete = ref(null)
+let secondsToComplete = ref(0)
 
 </script>
 
