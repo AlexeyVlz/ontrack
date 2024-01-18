@@ -1,7 +1,7 @@
 <script setup>
 import BaseSelect from "@/components/BaseSelect.vue";
 import {
-  isActivityValid,
+  isActivityValid, isNull,
   isTimelineItemValid,
   validateActivities,
   validateSelectOptions
@@ -27,13 +27,15 @@ const props = defineProps({
 })
 
 const emit = defineEmits({
-  selectActivity: isActivityValid
+  selectActivity(activity) {
+    return isNull(activity) || isActivityValid(activity)
+  }
 })
 
 function selectActivity(id) {
   emit(
       'selectActivity',
-      props.activities.find((activity) => activity.id === id)
+      props.activities.find((activity) => activity.id === id) || null
   )
 }
 
